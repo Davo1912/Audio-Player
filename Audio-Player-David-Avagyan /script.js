@@ -9,6 +9,8 @@ let data = {
     "music/Wham! - Last Christmas (из фильма «Рождество на двоих»)"],
     poster:["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXVhcmt6NmxyZno3dmVxdGR6NWhyMzdheGl4d2FzNGc0ZTUyZzUydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qvp6Z2fidQR34IcwQ5/giphy.gif","https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXVhcmt6NmxyZno3dmVxdGR6NWhyMzdheGl4d2FzNGc0ZTUyZzUydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qvp6Z2fidQR34IcwQ5/giphy.gif","https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXVhcmt6NmxyZno3dmVxdGR6NWhyMzdheGl4d2FzNGc0ZTUyZzUydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qvp6Z2fidQR34IcwQ5/giphy.gif","https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXVhcmt6NmxyZno3dmVxdGR6NWhyMzdheGl4d2FzNGc0ZTUyZzUydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qvp6Z2fidQR34IcwQ5/giphy.gif"]
 }
+
+////
 let currentSong = 0
 let song = new Audio()
 function playSong(){
