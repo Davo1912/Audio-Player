@@ -1,27 +1,31 @@
 let data = {
-    title: ["Spit in My Face",
-        "Chery Chery Lady",
+    title: [
+        "Last Christmas",
+        
+        "Spit in My Face",
         'Strangers',
-        "Last Christmas"],
-    song: ["music/ThxSoMch - SPIT IN MY FACE!.mp3",
+        "Chery Chery Lady"],
+    song: [
+        "music/Wham! - Last Christmas (из фильма «Рождество на двоих»).mp3",
+        "music/ThxSoMch - SPIT IN MY FACE!.mp3",
+        "music/Kenya Grace - Strangers.mp3",
         "music/Modern Talking - Cheri Cheri lady.mp3",
-        "music/Strangers.mp3",
-        "music/Last Christmas.mp3"],
-    poster: ["images/download.jpeg","images/SennheiserFullWidth.png"]
+        
+    ],
+    poster: ["images/Christmas.jpeg", "images/naushnik.png", "images/maxresdefault.jpg", "images/heaadphones.png"]
 }
-
 
 let currentSong = 0
 let song = new Audio()
+
 function playSong() {
     song.src = data.song[currentSong]
     let songTitle = document.getElementById("songtitle")
     songTitle.textContent = data.title[currentSong]
     let img = document.getElementsByClassName("row1")
-    img[0].style.bacgroundImage = "url(" + data.poster[currentSong] + ")";
+    img[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")";
     let main = document.getElementsByClassName("main")
-    main[0].style.bacgrountImage = "url(" + data.poster[currentSong] + ")";
-    song.play()
+    main[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")";
 }
 
 function playOrPauseSong() {
@@ -34,31 +38,21 @@ function playOrPauseSong() {
         play.src = "images/play-button-arrowhead.png"
     }
 }
+
 function next() {
     currentSong += 1
     if (currentSong >= data.song.length) {
         currentSong = 0
     }
-    song.src = data.song[currentSong]
-    let songTitle = document.getElementById("songtitle")
-    songTitle.textContent = data.title[currentSong]
-    let img = document.getElementsByClassName("row1")
-    img[0].style.bacgroundImage = "url(" + data.poster[currentSong] + ")";
-    let main = document.getElementsByClassName("main")
-    main[0].style.bacgrountImage = "url(" + data.poster[currentSong] + ")";
+    playSong()  // Reuse playSong to avoid repeating code
 }
+
 function pre() {
     currentSong -= 1
     if (currentSong < 0) {
         currentSong = data.song.length - 1
     }
-    song.src = data.song[currentSong]
-    let songTitle = document.getElementById("songtitle")
-    songTitle.textContent = data.title[currentSong]
-    let img = document.getElementsByClassName("row1")
-    img[0].style.bacgroundImage = "url(" + data.poster[currentSong] + ")";
-    let main = document.getElementsByClassName("main")
-    main[0].style.bacgrountImage = "url(" + data.poster[currentSong] + ")";
+    playSong()  // Reuse playSong to avoid repeating code
 }
 
 window.onload = function () {
@@ -66,7 +60,6 @@ window.onload = function () {
 }
 
 song.addEventListener("timeupdate", function () {
-    // console.log(song.currentTime);
     let fill = document.getElementsByClassName("fill")
     let position = song.currentTime / song.duration
     fill[0].style.marginLeft = position * 100 + "%"
@@ -85,8 +78,8 @@ function converTime(seconds) {
     sec = (sec < 10) ? "0" + sec : sec;
     currentTime[0].textContent = min + ':' + sec
     totalTime(song.duration)
-
 }
+
 function totalTime(seconds) {
     let currentTime = document.getElementsByClassName("currentTime")
     let min = Math.floor(seconds / 60)
@@ -94,5 +87,31 @@ function totalTime(seconds) {
     min = (min < 10) ? "0" + min : min;
     sec = (sec < 10) ? "0" + sec : sec;
     currentTime[0].textContent += "/" + min + ':' + sec
+}
 
+function mute() {
+    let mute = document.getElementById("mute")
+    if (song.muted) {
+        song.muted = false 
+        mute.src = "images/volume.png"
+    } else {
+        song.muted = true 
+        mute.src = "images/volume-mute.png"
+    }
+}
+
+function decrease() {
+    song.volume -= 0.2
+    if (song.volume <= 0.2) {
+        song.volume = 0
+        mute.src = "images/volume-down.png"
+    }
+}
+
+function increase() {
+    song.volume += 0.2
+    if (song.volume > 0.8) {
+        song.volume = 1
+    }
+    mute.src = "images/volume.png"
 }
