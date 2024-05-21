@@ -1,7 +1,6 @@
 let data = {
     title: [
         "Last Christmas",
-        
         "Spit in My Face",
         'Strangers',
         "Chery Chery Lady"],
@@ -64,6 +63,7 @@ song.addEventListener("timeupdate", function () {
     let position = song.currentTime / song.duration
     fill[0].style.marginLeft = position * 100 + "%"
     converTime(song.currentTime)
+    console.log(position)
     if (song.ended) {
         next()
     }
@@ -115,3 +115,54 @@ function increase() {
     }
     mute.src = "images/volume.png"
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const handle = document.querySelector(".handle");
+    const fill = document.querySelector(".fill");
+    const seekBar = document.querySelector(".seek-bar");
+
+    let isDragging = false;
+
+    // Event listener for clicking on the seek bar
+    seekBar.addEventListener("click", function (e) {
+        updateFillPosition(e.clientX);
+    });
+
+    // Event listener for clicking on the handle
+    handle.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        updateFillPosition(e.clientX);
+    });
+
+    // Event listener for dragging the handle
+    document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+            updateFillPosition(e.clientX);
+        }
+    });
+
+    // Event listener for releasing the mouse button
+    document.addEventListener("mouseup", function () {
+        isDragging = false;
+    });
+
+    // Function to update fill position based on mouse position
+    // Update the fill position based on mouse position
+    function updateFillPosition(mouseX) {
+        const seekBarRect = seekBar.getBoundingClientRect();
+        const handleRect = handle.getBoundingClientRect();
+        let offsetX = mouseX - seekBarRect.left - handleRect.width / 2;
+        let percentage;
+        if (offsetX < 0) {
+            offsetX = 0;
+        } else if (offsetX > seekBarRect.width - handleRect.width) {
+            offsetX = seekBarRect.width - handleRect.width;
+        }
+        percentage = offsetX / (seekBarRect.width - handleRect.width);
+        fill.style.width = offsetX + handleRect.width / 2 + "px";
+        fill.style.left = 0;
+        handle.style.left = offsetX + "px";
+        song.currentTime = percentage * song.duration;
+    }
+    
+
+});

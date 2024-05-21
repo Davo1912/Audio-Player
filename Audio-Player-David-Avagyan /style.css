@@ -33,7 +33,6 @@ html,body{
     height: 40%;
     width: 100%;
     background-size: cover;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpTVg6ziPc3yVYYBc6RNKVjKcPhUo5K3aZ6uUnbW6qvg&s");
     background-position-y: 37%;
     background-position-x: 50%;
 
@@ -45,7 +44,9 @@ html,body{
     width: 100%;
     text-align: center;
     font-family: italic;
+    font-size: 150%;
     color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .row2{
     height: 50%;
@@ -93,28 +94,37 @@ html,body{
     background-size: cover;
     margin: 20px;
 }
-.seek-bar{
-    height: 40%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Add these styles to your style.css file */
+
+.seek-bar {
+    width: 80%; /* Adjust width as needed */
+    height: 10px; /* Adjust height as needed */
+    background-color: rgba(255, 255, 255, 0.3); /* Adjust background color as needed */
+    border-radius: 5px; /* Adjust border radius as needed */
+    margin: 20px auto; /* Adjust margin as needed */
+    position: relative;
 }
-.handle{
-    width: 85%;
-    height: 5px;
-    background: grey;
-    background: radial-gradient(circle, grey 0%, rgba(252,70,107,1) 100%);
+
+.handle {
+    width: 10px; /* Adjust handle width as needed */
+    height: 10px; /* Adjust handle height as needed */
+    background-color: #fff; /* Adjust handle color as needed */
+    border-radius: 50%; /* Makes it round */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+    border: none; /* Remove the border */
 }
-.fill{
-    height: 8px;
-    width: 3px;
-    border-radius: 25px;
-    background-color: aquamarine;
-    z-index: 999;
-    margin-top: -1.5px;
-    margin-left: 0.5px;
+
+.fill {
+    height: 0%;
+    background-color: #fff; /* Change fill color to white */
+    border-radius: 0px; /* Adjust border radius as needed */
 }
+
+
+
 .currentTime{
     width: 50%;
     height: 100%;
