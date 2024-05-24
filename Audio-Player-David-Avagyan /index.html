@@ -12,14 +12,34 @@
     <div class="main">
 
     </div>
+    <div class="library">
+        <div class="song-list">
+            <div class="song-item" onclick="playSelectedSong(0)">
+                <img src="images/Christmas.jpeg">
+                <span>Last Christmas</span>
+            </div>
+            <div class="song-item" onclick="playSelectedSong(1)">
+                <img src="https://a-static.besthdwallpaper.com/music-technology-wallpaper-1440x1080-12127_22.jpg">
+                <span> Spit in my face</span>
+            </div>
+            <div class="song-item" onclick="playSelectedSong(2)">
+                <img src="https://s.cafebazaar.ir/images/icons/com.livewallpapers.changer.musicringtones.sound-e935be3a-b3ad-46bb-a7cd-a0e9f1c74ca6_512x512.png?x-img=v1/resize,h_256,w_256,lossless_false/optimize">
+                <span> Strangers</span>
+            </div>
+            <div class="song-item" onclick="playSelectedSong(3)">
+                <img src="https://img.freepik.com/premium-photo/dj-mixing-music-with-colorful-background-man-playing-turntable_862994-8280.jpg">
+                <span>Chery Chery Lady</span>
+            </div>
+        </div>
+    </div>
     <div class="player">
         <div class="row1"></div>
         <div id="songtitle">Title</div>
         <div class="row2">
             <div class="play">
-                <img src="images/previous.png" id="pre" alt="" onclick="pre()">
-                <img src="images/play-button-arrowhead.png" id="play" onclick="playOrPauseSong()" alt="">
-                <img src="images/next.png" id="next" alt="" onclick="next()">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWZpcnN0Ij48cGF0aCBkPSJtMTcgMTgtNi02IDYtNiIvPjxwYXRoIGQ9Ik03IDZ2MTIiLz48L3N2Zz4=" id="pre" alt="" onclick="pre()">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1wbGF5Ij48cG9seWdvbiBwb2ludHM9IjYgMyAyMCAxMiA2IDIxIDYgMyIvPjwvc3ZnPg==" id="play" onclick="playOrPauseSong()" alt="">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWxhc3QiPjxwYXRoIGQ9Im03IDE4IDYtNi02LTYiLz48cGF0aCBkPSJNMTcgNnYxMiIvPjwvc3ZnPg==" id="next" alt="" onclick="next()">
             </div>
             <div class="seek-bar">
                 <div class="handle">
@@ -30,9 +50,9 @@
             <div class="mute"> 
                 <div class="currentTime">00:00:00  </div>
                 <div class="mute-bottons">
-                    <img src="images/volume-mute.png" id="mute" onclick="mute()">
-                    <img src="images/volume.png" id="increase"  onclick="increase()">
-                    <img src="images/volume-down.png" id="decrease" onclick="decrease()">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS12b2x1bWUteCI+PHBvbHlnb24gcG9pbnRzPSIxMSA1IDYgOSAyIDkgMiAxNSA2IDE1IDExIDE5IDExIDUiLz48bGluZSB4MT0iMjIiIHgyPSIxNiIgeTE9IjkiIHkyPSIxNSIvPjxsaW5lIHgxPSIxNiIgeDI9IjIyIiB5MT0iOSIgeTI9IjE1Ii8+PC9zdmc+" id="mute" onclick="mute()">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS12b2x1bWUtMSI+PHBvbHlnb24gcG9pbnRzPSIxMSA1IDYgOSAyIDkgMiAxNSA2IDE1IDExIDE5IDExIDUiLz48cGF0aCBkPSJNMTUuNTQgOC40NmE1IDUgMCAwIDEgMCA3LjA3Ii8+PC9zdmc+" id="increase"  onclick="increase()">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS12b2x1bWUiPjxwb2x5Z29uIHBvaW50cz0iMTEgNSA2IDkgMiA5IDIgMTUgNiAxNSAxMSAxOSAxMSA1Ii8+PC9zdmc+" id="decrease" onclick="decrease()">
                 </div>
             </div>
         </div>
